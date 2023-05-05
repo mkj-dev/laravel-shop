@@ -90,7 +90,7 @@ class UserController extends Controller
         } catch (Exception $e) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Błąd - wewnętrzny błąd serwera...'
+                'message' => 'Error - Internal server error...'
             ])->setStatusCode(500);
         }
     }
