@@ -40,20 +40,45 @@
                 button.addEventListener('click', function() {
                     const userId = this.getAttribute('data-id');
 
-                    // Send an AJAX request to the server to delete the user
-                    const xhr = new XMLHttpRequest();
-                    xhr.onreadystatechange = function() {
-                        if (xhr.readyState === XMLHttpRequest.DONE) {
-                            if (xhr.status === 200) {
-                                // Reload the page to update the user list
-                                location.reload();
-                            } else {
-                                console.error('Error deleting user:', xhr.responseText);
-                            }
+                    const swalWithBootstrapButtons = Swal.mixin({
+                        customClass: {
+                            confirmButton: 'btn btn-success',
+                            cancelButton: 'btn btn-danger'
+                        },
+                        buttonsStyling: false
+                    })
+
+                    swalWithBootstrapButtons.fire({
+                        title: 'Czy na pewno chcesz usunąć rekord?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Tak',
+                        cancelButtonText: 'Nie',
+                        reverseButtons: true
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Send an AJAX request to the server to delete the user
+                            const xhr = new XMLHttpRequest();
+                            xhr.onreadystatechange = function() {
+                                if (xhr.readyState === XMLHttpRequest.DONE) {
+                                    if (xhr.status === 200) {
+                                        // Reload the page to update the user list
+                                        location.reload();
+                                    } else {
+                                        console.log('Błąd:', xhr.response, 'Kod statusu:', xhr
+                                            .status);
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: `Coś poszło nie tak!`,
+                                        })
+                                    }
+                                }
+                            };
+                            xhr.open('DELETE', '{{ url('users') }}/' + userId);
+                            xhr.send();
                         }
-                    };
-                    xhr.open('DELETE', '/users/' + userId);
-                    xhr.send();
+                    })
                 });
             }
         });
