@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="surname" class="col-md-4 col-form-label text-md-end">Surname</label>
+                                <label for="surname" class="col-md-4 col-form-label text-md-end">{{ __('Surname') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="surname" type="text"
@@ -44,7 +44,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="phone_number" class="col-md-4 col-form-label text-md-end">Phone number</label>
+                                <label for="phone_number" class="col-md-4 col-form-label text-md-end">{{ __('Phone Number') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="phone_number" type="text"
