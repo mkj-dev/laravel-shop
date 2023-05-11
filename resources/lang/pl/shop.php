@@ -11,7 +11,7 @@ return [
       'image' => 'Zdjęcie produktu',
     ],
     'edit_form' => [
-      'title' => 'Edycja produktu',
+      'title' => 'Edycja produktu :name',
     ]
   ],
   'button' => [
