@@ -3,6 +3,15 @@
 declare(strict_types=1);
 
 return [
+    'email' => "Pole :attribute nie jest poprawnym adresem e-mail.",
+    'required' => 'Pole :attribute jest wymagane.',
+    "mimes" => "Pole :attribute musi być plikiem typu :values.",
+    "mimetypes" => "Pole :attribute musi być plikiem typu :values.",
+    "min.array" => "Pole :attribute musi mieć przynajmniej :min elementów.",
+    "min.file" => "Pole :attribute musi mieć przynajmniej :min kilobajtów.",
+    "min.numeric" => "Pole :attribute musi być nie mniejsze od :min.",
+    "min.string" => "Pole :attribute musi mieć przynajmniej :min znaków.",
+    "min_digits" => "Pole :attribute musi mieć co najmniej :min cyfr.",
     'attributes' => [
         'address'                  => 'adres',
         'age'                      => 'wiek',
